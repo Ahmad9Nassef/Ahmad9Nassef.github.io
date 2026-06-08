@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Build WhatsApp message
-      const whatsappNumber = '963967138089+'; // رقم الشركة بدون + وبدون أصفار
+      const whatsappNumber = '963967138089'; // رقم الشركة بدون + وبدون أصفار
       let text = '';
       text += '🔔 *رسالة جديدة من الموقع*%0A';
       text += '━━━━━━━━━━━━━━━━━━%0A';
