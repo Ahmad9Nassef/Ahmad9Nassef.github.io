@@ -1324,6 +1324,7 @@ img { max-width: 100%; }
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .lightbox__close:hover {
@@ -1335,23 +1336,29 @@ img { max-width: 100%; }
 .lightbox__inner {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
   max-width: 90vw;
   max-height: 90vh;
 }
 
 .lightbox__img-wrap {
   position: relative;
-  max-width: 80vw;
-  max-height: 85vh;
+  max-width: 90vw;
+  max-height: 90vh;
+    min-width: 200px; /* ← أضف هذا */
+
 }
 
 .lightbox__img-wrap img {
-  max-width: 80vw;
-  max-height: 82vh;
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
   object-fit: contain;
   border-radius: var(--radius);
   display: block;
+    margin: 0 auto; /* ← يمركز الصورة */
+
 }
 
 .lightbox__caption {
@@ -1362,17 +1369,21 @@ img { max-width: 100%; }
   margin-top: 12px;
 }
 
+/* الأسهم داخل الصورة */
 .lightbox__nav {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: var(--white);
-  width: 48px;
-  height: 48px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--gold-30);
+  color: var(--gold);
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 24px;
   cursor: pointer;
   transition: var(--transition);
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1383,19 +1394,28 @@ img { max-width: 100%; }
   background: var(--gold);
   color: var(--black);
   border-color: var(--gold);
+  
+}
+.lightbox__nav--prev {
+  right: 12px;
 }
 
-/* Responsive portfolio */
+.lightbox__nav--next {
+  left: 12px;
+}
+
+
+
+
+/* Responsive */
 @media (max-width: 768px) {
-  .portfolio__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .lightbox__nav {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
   }
-  .tab-btn span:not(.tab-icon):not(.tab-count) {
-    display: none;
-  }
-  .tab-btn {
-    padding: 10px 14px;
-  }
+.lightbox__nav--prev { right: 8px; }
+.lightbox__nav--next { left: 8px; }
 }
 
 @media (max-width: 480px) {

@@ -576,13 +576,13 @@
   <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <button class="lightbox__close" onclick="closeLightboxBtn()">✕</button>
     <div class="lightbox__inner">
-      <button class="lightbox__nav lightbox__nav--prev" onclick="lightboxNav(-1)">&#8249;</button>
-      <div class="lightbox__img-wrap">
-        <img src="" alt="" id="lightbox-img"/>
-        <div class="lightbox__caption" id="lightbox-caption"></div>
-      </div>
-      <button class="lightbox__nav lightbox__nav--next" onclick="lightboxNav(1)">&#8250;</button>
-    </div>
+  <div class="lightbox__img-wrap">
+    <button class="lightbox__nav lightbox__nav--prev" onclick="event.stopPropagation(); lightboxNav(-1)">&#8249;</button>
+    <button class="lightbox__nav lightbox__nav--next" onclick="event.stopPropagation(); lightboxNav(1)">&#8250;</button>
+    <img src="" alt="" id="lightbox-img"/>
+    <div class="lightbox__caption" id="lightbox-caption"></div>
+  </div>
+</div>
   </div>
 
   <!-- ===== CONTACT ===== -->
@@ -606,7 +606,7 @@
             </div>
             <div>
               <span class="contact-card__label">اتصل بنا</span>
-              <a href="tel:963967138089" class="contact-card__value">963967138089</a>
+              <a href="tel:+963967138089" class="contact-card__value">+963967138089</a>
             </div>
           </div>
 
